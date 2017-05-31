@@ -14,10 +14,6 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/pages/register.html',
       controller: "LoginController as lc"
     })
-    .when('/registertwo', {
-      templateUrl: '/views/registerparttwo.html',
-      controller: "LoginController as lc"
-    })
     .when('/user', {
       templateUrl: '/views/pages/user.html',
       controller: "UserController as uc"
@@ -27,22 +23,3 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     });
 
 }]);
-
-// myApp.controller('FirstController', function ($http) {
-//   var vm = this;
-//
-// console.log('in controller');
-
-//   vm.sendText = function ({
-//     $http({
-//       method: 'POST',
-//       url: '/test'
-//   });
-// }); // end sendText
-
-// vm.selectFeeling = function ({
-//    console.log('in selectFeeling');
-//
-// }); // end selectFeeling
-
-// }); // end controller

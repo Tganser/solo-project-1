@@ -22,4 +22,5 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
       $location.path("/home");
     });
   }
+
 }]);
