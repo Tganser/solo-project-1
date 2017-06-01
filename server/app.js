@@ -13,10 +13,8 @@ var session = require('express-session');
 var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
+var sendMessage = require('./routes/twilio');
 
-// twilio info
-var accountSid = 'ACee1e1ee9a4265df58db4d0bb6a1c2f0d';
-var authToken = '7607abe91b1d0e3c38a9ac788d379d7f';
 
 // app uses
 app.use(bodyParser.json());
@@ -41,6 +39,7 @@ app.use(passport.session());
 // Routes
 app.use('/register', register);
 app.use('/user', user);
+app.use('/', sendMessage);
 app.use('/*', index);
 
 // Mongo Connection //
@@ -77,15 +76,3 @@ app.set('port', (process.env.PORT || 5000));
 app.listen(app.get("port"), function(){
    console.log("Listening on port: " + app.get("port"));
 });
-
-// app.post('/test', function (req, res) {
-//
-//   var client = new twilio(accountSid, authToken);
-//
-//   client.messages.create({
-//       body: 'Hello from Node and I',
-//       to: '+6127566053',  // Text this number
-//       from: '+7634474833' // From a valid Twilio number
-//   })
-//   .then((message) => console.log(message.sid));
-// });

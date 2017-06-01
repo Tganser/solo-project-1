@@ -3,7 +3,7 @@ var myApp = angular.module('myApp',  ['ngRoute']);
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
-  $locationProvider.hashPrefix('');
+  $locationProvider.html5Mode(true);
 
   $routeProvider
     .when('/home', {
@@ -14,7 +14,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/pages/register.html',
       controller: "LoginController as lc"
     })
-    .when('/user', {
+    .when('/userHome', {
       templateUrl: '/views/pages/user.html',
       controller: "UserController as uc"
     })
