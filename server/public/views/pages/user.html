@@ -3,17 +3,15 @@
   <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
 </div>
 
-<article class="container">
-
+<article class="users">
 <blockquote>
           <strong>When you let your light shine,</strong> you unconsciously give, <em>others the permission</em> to do <strong>the same.</strong>
       </blockquote>
       <b>Nelson Mandela.</b>
-
-<h3 class="text">How are you feeling today?</h3>
-
 </article>
 
+<div class="users">
+  <h3 class="text">How are you feeling today?</h3>
 
 <div class="radio checkbox-inline">
   <label><input type="radio" name="optradio" ng-click="uc.selectRadio(1)">1</label>
@@ -48,14 +46,12 @@
 <div>
   <button class="btn btn-default" ng-click="uc.selectFeeling()">Submit</button>
 </div>
+</div>
 
 
-  <div class="form-group col-xs-4" id="journal">
-    <label for="comment">Feel free to write anything's that's on your mind. We're here to listen:</label>
-    <textarea class="form-control" rows="5" id="comment"></textarea>
-  </div>
-
-
-
+<div>
+  <h3 class="journal">Your Thoughts</h3>
+  <button class="btn btn-default" ng-click="uc.journal()">Journal</button>
+</div>
 
 </body>

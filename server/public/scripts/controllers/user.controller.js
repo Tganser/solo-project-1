@@ -47,5 +47,38 @@ vm.selectRadio = function (number) {
   feeling = number;
   console.log('feeling ->', feeling);
 }
+vm.journal = function () {
+  $location.path("/journal");
+}
+vm.addJournal = function(){
+    console.log("in add journal route!");
+    console.log("journal entry: " + vm.user.journal);
+
+    var objectToSend = {
+      journal: vm.user.journal
+    };
+    console.log('object to send: ', objectToSend);
+
+    $http({
+      method: 'POST',
+      url: '/journal',
+      data: objectToSend
+    }).then(function(response){
+      console.log('response in $http: ', response.config.data);
+
+      vm.user.journal = '';
+
+      vm.getJournal();
+    });
+  };
+  vm.getJournal = function () {
+      $http({
+        method: 'GET',
+        url: '/journal',
+      }).then(function (response){
+        console.log('response from server in getJournal route ', response.data);
+        vm.journalArray = response.data;
+      });
+    };
 
 }]);

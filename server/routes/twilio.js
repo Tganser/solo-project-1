@@ -9,12 +9,13 @@ var authToken = '7607abe91b1d0e3c38a9ac788d379d7f';
 var client = new twilio(accountSid, authToken);
 
 router.post('/sendMessage', function (req, res) {
-  var random = Math.floor(Math.random());
+  var random = Math.floor((Math.random() * 1) + 0);
+  console.log('random->', random);
   var phoneNumberArray = [req.body.phoneOne, req.body.phoneTwo];
   var phoneNumber = phoneNumberArray[random]
 
   client.messages.create({
-      body: 'Check in with' + '' + req.body.username + ', they are feeling down.',
+      body: 'Check in with' + ' ' + req.body.username + ', they are feeling down.',
       to: phoneNumber,  // Text this number
       from: '+17634474833' // From a valid Twilio number
   })

@@ -14,6 +14,7 @@ var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
 var sendMessage = require('./routes/twilio');
+var journal = require('./routes/journal');
 
 
 // app uses
@@ -40,6 +41,7 @@ app.use(passport.session());
 app.use('/register', register);
 app.use('/user', user);
 app.use('/', sendMessage);
+app.use('/journal', journal);
 app.use('/*', index);
 
 // Mongo Connection //

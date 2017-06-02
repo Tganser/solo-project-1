@@ -2,6 +2,7 @@ var passport = require('passport');
 var path = require('path');
 var express = require('express');
 var router = express.Router();
+var Journal = require('../models/journal.model');
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
   console.log('get /user route');
@@ -17,6 +18,8 @@ router.get('/', function(req, res) {
     res.send(false);
   }
 });
+
+
 
 // clear all server session information about this user
 router.get('/logout', function(req, res) {

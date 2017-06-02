@@ -18,6 +18,10 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/pages/user.html',
       controller: "UserController as uc"
     })
+    .when('/journal', {
+      templateUrl: '/views/pages/journal.html',
+      controller: "UserController as uc"
+    })
     .otherwise({
       redirectTo: 'home'
     });
