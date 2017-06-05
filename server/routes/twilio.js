@@ -15,7 +15,7 @@ router.post('/sendMessage', function (req, res) {
   var phoneNumber = phoneNumberArray[random]
 
   client.messages.create({
-      body: 'Check in with' + ' ' + req.body.username + ', they are feeling down.',
+      body: 'Check in with' + ' ' + req.body.username + ', they need you.',
       to: phoneNumber,  // Text this number
       from: '+17634474833' // From a valid Twilio number
   })

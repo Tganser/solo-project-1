@@ -15,6 +15,7 @@ var user = require('./routes/user');
 var register = require('./routes/register');
 var sendMessage = require('./routes/twilio');
 var journal = require('./routes/journal');
+var feeling = require('./routes/feeling');
 
 
 // app uses
@@ -42,6 +43,7 @@ app.use('/register', register);
 app.use('/user', user);
 app.use('/', sendMessage);
 app.use('/journal', journal);
+app.use('/feeling', feeling);
 app.use('/*', index);
 
 // Mongo Connection //

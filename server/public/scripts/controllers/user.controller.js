@@ -2,6 +2,7 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   // This happens after view/controller loads -- not ideal but it works for now.
   var vm = this;
   var feeling ;
+  var allFeelings = [];
   console.log('checking user');
 
   // Upon load, check this user's session on the server
@@ -26,6 +27,28 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
   }
 
   vm.selectFeeling = function () {
+    console.log('in selectFeeling.');
+    console.log('Feeling ->', feeling);
+  if( feeling === undefined){
+    return ;
+  }
+
+    var objectToSend = {
+      feeling: feeling,
+      username: vm.userName
+    };
+    console.log('objToSend ->', objectToSend);
+
+    $http({
+      url: '/feeling',
+      method: 'POST',
+      data: objectToSend
+    }).then(function success(res) {
+      console.log('res->', res);
+    }, function fail(res) {
+      console.log(res);
+  });
+
     if(feeling <= 4) {
       console.log('sad');
     $http({
@@ -37,11 +60,14 @@ myApp.controller('UserController', ['$http', '$location', function($http, $locat
     }, function fail(res) {
       console.log(res);
     });
-    } else {
-      console.log('not sad');
+  } if (feeling <= 7) {
+      console.log('okay ');
+    } if (feeling >= 8) {
+      console.log('GREAT!');
+
+    }
     };
 
-  };
 
 vm.selectRadio = function (number) {
   feeling = number;
@@ -50,12 +76,16 @@ vm.selectRadio = function (number) {
 vm.journal = function () {
   $location.path("/journal");
 }
+vm.feeling = function () {
+  $location.path("/feeling");
+}
 vm.addJournal = function(){
     console.log("in add journal route!");
     console.log("journal entry: " + vm.user.journal);
 
     var objectToSend = {
-      journal: vm.user.journal
+      journal: vm.user.journal,
+      username: vm.userName
     };
     console.log('object to send: ', objectToSend);
 
@@ -71,14 +101,77 @@ vm.addJournal = function(){
       vm.getJournal();
     });
   };
-  vm.getJournal = function () {
+  vm.getJournal = function (id, name) {
       $http({
         method: 'GET',
-        url: '/journal',
+        url: '/journal'
       }).then(function (response){
-        console.log('response from server in getJournal route ', response.data);
+        console.log('response from server in getJournal route ', response);
         vm.journalArray = response.data;
       });
     };
+
+  vm.getFeeling = function () {
+  $http({
+    method: 'GET',
+    url: '/feeling'
+  }).then(function (response) {
+    console.log('response from server in getFeeling', response);
+    vm.feelingArray = response.data;
+    console.log("feelingArray ->", vm.feelingArray);
+    for (var i = 0; i < vm.feelingArray.length; i++) {
+      var newFeel = vm.feelingArray[i].feeling
+      console.log('newFeel', newFeel);
+      allFeelings.push(newFeel);
+      console.log("allFeelings ->", allFeelings);
+
+      drawChart(allFeelings);
+
+
+    };
+  });
+  function drawChart() {
+
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7", "Day 8", "Day 9", "Day 10"],
+          datasets: [{
+              label: 'Progress',
+              data: allFeelings,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+
+  });
+} // end drawChart
+}; // end get Feeling
+
 
 }]);

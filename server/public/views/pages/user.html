@@ -1,6 +1,7 @@
 <h1>Welcome {{uc.userName}}!</h1>
 <div>
   <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
+  <button class="btn btn-default" ng-click="uc.feeling()">Your Progress</button>
 </div>
 
 <article class="users">
@@ -14,37 +15,37 @@
   <h3 class="text">How are you feeling today?</h3>
 
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(1)">1</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(1)">1</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(2)">2</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(2)">2</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(3)">3</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(3)">3</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(4)">4</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(4)">4</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(5)">5</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(5)">5</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(6)">6</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(6)">6</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(7)">7</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(7)">7</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(8)">8</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(8)">8</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(9)">9</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(9)">9</label>
 </div>
 <div class="radio checkbox-inline">
-  <label><input type="radio" name="optradio" ng-click="uc.selectRadio(10)">10</label>
+  <label><input type="radio" name="optradio" ng-model="uc.user.feeling" ng-click="uc.selectRadio(10)">10</label>
 </div>
 <div>
-  <button class="btn btn-default" ng-click="uc.selectFeeling()">Submit</button>
+  <button class="btn btn-default" ng-click="uc.selectFeeling()">Submit Mood Entry</button>
 </div>
 </div>
 
