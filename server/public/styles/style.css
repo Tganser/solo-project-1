@@ -39,7 +39,9 @@ body {
 .well {
    background-color: rgba(245, 245, 245, 0.4);
 }
-
+#register{
+  color: black;
+}
 h1{
   opacity: 1;
   color: white;
@@ -49,8 +51,9 @@ h1{
 .container{
   text-align: center;
 }
-#journal{
+.journal{
   text-align: center;
+  float: center;
 }
 div {
   text-align: center;

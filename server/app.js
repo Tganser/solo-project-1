@@ -6,6 +6,8 @@ var twilio = require('twilio');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+
+// passport things
 var passport = require('./strategies/user.strategy');
 var session = require('express-session');
 
