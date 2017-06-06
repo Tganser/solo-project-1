@@ -9,7 +9,7 @@ var authToken = '7607abe91b1d0e3c38a9ac788d379d7f';
 var client = new twilio(accountSid, authToken);
 
 router.post('/sendMessage', function (req, res) {
-  var random = Math.floor((Math.random() * 1) + 0);
+  var random = Math.round((Math.random()));
   console.log('random->', random);
   var phoneNumberArray = [req.body.phoneOne, req.body.phoneTwo];
   var phoneNumber = phoneNumberArray[random]

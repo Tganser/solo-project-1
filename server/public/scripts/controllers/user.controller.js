@@ -87,12 +87,15 @@ vm.selectRadio = function (number) {
   feeling = number;
   console.log('feeling ->', feeling);
 }
+
 vm.journal = function () {
   $location.path("/journal");
 }
+
 vm.feeling = function () {
   $location.path("/feeling");
 }
+// function to add journal entry to database
 vm.addJournal = function(){
   console.log("in add journal route!");
   console.log("journal entry: " + vm.user.journal);
@@ -115,6 +118,8 @@ vm.addJournal = function(){
     vm.getJournal();
   });
 };
+
+// function to get journal entry from database
 vm.getJournal = function (id, name) {
   $http({
     method: 'GET',
@@ -125,6 +130,7 @@ vm.getJournal = function (id, name) {
   });
 };
 
+// function to get feeling 1-10 and chart it so users can see it
 vm.getFeeling = function () {
   $http({
     method: 'GET',
