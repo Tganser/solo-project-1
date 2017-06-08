@@ -20,10 +20,14 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
     })
     .when('/journal', {
       templateUrl: '/views/pages/journal.html',
-      controller: "UserController as uc"
+      controller: "JournalController as jc"
     })
     .when('/feeling', {
       templateUrl: '/views/pages/feeling.html',
+      controller: "FeelingController as fc"
+    })
+    .when('/editProfile', {
+      templateUrl: '/views/pages/edit.html',
       controller: "UserController as uc"
     })
     .otherwise({

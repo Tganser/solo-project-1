@@ -1,4 +1,4 @@
-<div ng-init="uc.getJournal()">
+<div ng-init="jc.getJournal()">
 
   <a href="/userHome">Home</a>
 <article class="users">
@@ -9,17 +9,17 @@
 </article>
 
 <div class="form-group col-md-3 users" id="journal">
-  <label for="comment">Feel free to write anything's that's on your mind. We're here to listen:</label>
-  <textarea class="form-control" ng-model="uc.user.journal" rows="5" id="comment"></textarea>
-  <button class="btn btn-default" ng-click="uc.addJournal()">Submit Entry</button>
+  <label for="comment">Feel free to write anything's that's on your mind.</label>
+  <textarea class="form-control" ng-model="jc.user.journal" rows="5" id="comment"></textarea>
+  <button class="btn btn-default" ng-click="jc.addJournal()">Submit Entry</button>
 </div>
-<div ng-repeat="entry in uc.journalArray">
+<div ng-repeat="entry in jc.journalArray">
   <div class="col-xs-4 card">
     <h4>{{entry.journal}}</h4>
   </div>
 
 </div>
-<div>
+<div ng-controller="UserController as uc">
   <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
 
 </div>

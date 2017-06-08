@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="users">
+    <a href="/userHome">Home</a>
+    <h2>Edit Profile Information</h2>
+    <form>
+      <h3>User Information:</h3>
+      <div>
+        <label for="username" >Username:</label>
+        <input type="text" value="{{}}" />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" walue="{{}}"  />
+        <div class="">
+          <button class="btn btn-default">Submit</button>
+        </div>
+      </div>
+      <h3>Support Information</h3>
+      <div>
+        <label for="persononename">Person 1:</label>
+        <input type="text" ng-model="lc.user.persononename" placeholder="Person 1"/>
+        <label for="personeonenumber">Phone Number:</label>
+        <input type="text" ng-model="lc.user.personeonenumber" placeholder="Phone Number" />
+        <button class="btn btn-default">Submit</button>
+      </div>
+      <div>
+        <label for="persontwoname">Person 2:</label>
+        <input type="text" ng-model="lc.user.persontwoname" placeholder="Person 2" />
+        <label for="persontwonumber">Phone Number:</label>
+        <input type="text" ng-model="lc.user.persontwonumber" placeholder="Phone Number"/>
+        <button class="btn btn-default">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
 
     router.get('/', function (req, res) {
       console.log('in get feeling route');
-      console.log('req.body ->', req.body);
+      // console.log('req.body ->', req.body);
 
         Feeling.find({user: req.user._id}, function(err, data){
           if(err){
