@@ -1,33 +1,29 @@
-<!-- <div class="container">
+<div class="container">
   <div class="users">
     <a href="/userHome">Home</a>
     <h2>Edit Profile Information</h2>
     <form>
-      <h3>User Information:</h3>
-      <div>
-        <label for="username" >Username:</label>
-        <input type="text"  value="{{ec.userName}}" />
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" value=""  />
-      </div>
       <h3>Support Information</h3>
       <div>
         <label for="persononename">Person 1:</label>
-        <input type="text" value="{{ec.personOne}}"/>
+        <span ng-show="ec.editMode"><input type="text" ng-model="ec.personOneNew" ng-value="ec.user.persononename"/></span>
+        <span ng-hide="ec.editMode">{{ec.personOneNew}}</span>
         <label for="personeonenumber">Phone Number:</label>
-        <input type="text" value="+1 {{ec.phoneOne}}" />
+        <span ng-show="ec.editMode"><input type="text" ng-model="ec.phoneOneNew" ng-value="ec.user.personeonenumber" /></span>
+        <span ng-hide="ec.editMode">{{ec.phoneOneNew}}</span>
       </div>
       <div>
         <label for="persontwoname">Person 2:</label>
-        <input type="text" value="{{ec.personTwo}}" />
+        <span ng-show="ec.editMode"><input type="text" ng-model="ec.personTwoNew" ng-value="ec.user.persontwoname" /></span>
+        <span ng-hide="ec.editMode">{{ec.personTwoNew}}</span>
         <label for="persontwonumber">Phone Number:</label>
-        <input type="text" value= "+1 {{ec.phoneTwo}}"/>
+        <span ng-show="ec.editMode"><input type="text" ng-model="ec.phoneTwoNew" ng-value= "ec.user.persontwonumber"/></span>
+        <span ng-hide="ec.editMode">{{ec.phoneTwoNew}}</span>
         <div>
-          <button class="btn btn-default" ng-click="ec.editProfile()">Edit</button>
+          <span ng-hide="ec.editMode"><button class="btn btn-default" ng-click="ec.editMode = !ec.editMode">Update</button></span>
+          <span ng-show="ec.editMode"><button class="btn btn-default" ng-click="ec.editProfile(ec.user._id)">Save</button></span>
         </div>
       </div>
     </form>
   </div>
-</div> -->
+</div>

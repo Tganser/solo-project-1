@@ -20,6 +20,18 @@ router.get('/', function(req, res) {
   }
 });
 
+router.put('/', function (req, res) {
+  console.log('in put route, req.body ->', req.body);
+  User.update({_id:req.body._id}, req.body, function(err){
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+
 
 
 // clear all server session information about this user

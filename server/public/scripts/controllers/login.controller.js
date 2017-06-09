@@ -18,7 +18,7 @@ myApp.controller('LoginController', ['$http', '$location', function($http, $loca
         vm.message = "Please enter your username and password!";
       } else {
         console.log('sending to server...', vm.user);
-        $http.post('/', vm.user).then(function(response) {
+        $http.post('/user', vm.user).then(function(response) {
           if(response.data.username) {
             console.log('success: ', response.data);
             // location works with SPA (ng-route)
