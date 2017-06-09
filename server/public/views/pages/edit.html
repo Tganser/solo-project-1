@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="users">
     <a href="/userHome">Home</a>
     <h2>Edit Profile Information</h2>
@@ -6,30 +6,28 @@
       <h3>User Information:</h3>
       <div>
         <label for="username" >Username:</label>
-        <input type="text" value="{{}}" />
+        <input type="text"  value="{{ec.userName}}" />
       </div>
       <div>
         <label for="password">Password:</label>
-        <input type="password" walue="{{}}"  />
-        <div class="">
-          <button class="btn btn-default">Submit</button>
-        </div>
+        <input type="password" value=""  />
       </div>
       <h3>Support Information</h3>
       <div>
         <label for="persononename">Person 1:</label>
-        <input type="text" ng-model="lc.user.persononename" placeholder="Person 1"/>
+        <input type="text" value="{{ec.personOne}}"/>
         <label for="personeonenumber">Phone Number:</label>
-        <input type="text" ng-model="lc.user.personeonenumber" placeholder="Phone Number" />
-        <button class="btn btn-default">Submit</button>
+        <input type="text" value="+1 {{ec.phoneOne}}" />
       </div>
       <div>
         <label for="persontwoname">Person 2:</label>
-        <input type="text" ng-model="lc.user.persontwoname" placeholder="Person 2" />
+        <input type="text" value="{{ec.personTwo}}" />
         <label for="persontwonumber">Phone Number:</label>
-        <input type="text" ng-model="lc.user.persontwonumber" placeholder="Phone Number"/>
-        <button class="btn btn-default">Submit</button>
+        <input type="text" value= "+1 {{ec.phoneTwo}}"/>
+        <div>
+          <button class="btn btn-default" ng-click="ec.editProfile()">Edit</button>
+        </div>
       </div>
     </form>
   </div>
-</div>
+</div> -->

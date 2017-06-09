@@ -1,7 +1,15 @@
-myApp.controller('FeelingController', ['$http', '$location', function($http, $location) {
+myApp.controller('FeelingController', ['UserService','$http', '$location', function(UserService, $http, $location) {
   var vm = this;
   var feeling ;
   var allFeelings = [];
+  // Upon load, check this user's session on the server
+  vm.getUserInfo = function () {
+    UserService.getUser().then(function (response) {
+      console.log('response ->', response);
+      vm.user = response;
+    })
+  };
+  vm.getUserInfo();
 
   // function to select a radio and have it be equal to a number
   vm.selectRadio = function (number) {
@@ -19,7 +27,7 @@ myApp.controller('FeelingController', ['$http', '$location', function($http, $lo
 
     var objectToSend = {
       feeling: feeling,
-      username: vm.userName
+      username: vm.user.username
     };
     console.log('objToSend ->', objectToSend);
 
@@ -39,12 +47,13 @@ myApp.controller('FeelingController', ['$http', '$location', function($http, $lo
       $http({
         url: '/sendMessage',
         method: 'POST',
-        data: {username: vm.userName, phoneOne: vm.phoneOne, phoneTwo: vm.phoneTwo}
+        data: {username: vm.user.username, phoneOne: vm.user.personeonenumber, phoneTwo: vm.user.persontwonumber}
       }).then(function success(res) {
         console.log('res->', res);
       }, function fail(res) {
         console.log(res);
       });
+
     } if (feeling === 5 ) {
       swal({   title: "That's good to hear!",   text: "Everything's gonna be alright",   imageUrl: "http://pix.iemoji.com/images/emoji/apple/ios-9/256/smiling-face-with-smiling-eyes.png" });
       console.log('okay ');

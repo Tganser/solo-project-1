@@ -1,6 +1,9 @@
-<h1>Welcome {{uc.userName}}!</h1>
+<div ng-init="uc.getUserInfo()">
+
+
+<h1>Welcome {{uc.user.username}}!</h1>
 <div>
-  <a href="/editProfile">Edit Profile</a>
+  <a href="/edit">Edit Profile</a>
   <button class="btn btn-default" ng-click="uc.logout()">Log Out</button>
   <button class="btn btn-default" ng-click="uc.feeling()">Your Progress</button>
 </div>
@@ -56,4 +59,4 @@
   <button class="btn btn-default" ng-click="uc.journal()">Journal</button>
 </div>
 </div>
-</body>
+</div>

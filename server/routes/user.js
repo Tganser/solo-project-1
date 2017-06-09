@@ -2,7 +2,8 @@ var passport = require('passport');
 var path = require('path');
 var express = require('express');
 var router = express.Router();
-var Journal = require('../models/journal.model');
+var User = require('../models/user.model');
+var twilio = require('twilio');
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
   console.log('get /user route');
@@ -28,6 +29,20 @@ router.get('/logout', function(req, res) {
   req.logOut();
   res.sendStatus(200);
 });
+
+router.put('/:id', function(req,res){
+  console.log('user is now on the server:',req.body);
+  User.update({_id: req.params.id}, req.body, function(err){
+    if(err){
+      console.log(err);
+      res.sendStatus(500);
+    }
+    else{
+      res.sendStatus(200);
+    }
+  });
+});
+
 
 
 module.exports = router;

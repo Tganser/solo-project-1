@@ -26,9 +26,9 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/pages/feeling.html',
       controller: "FeelingController as fc"
     })
-    .when('/editProfile', {
+    .when('/edit', {
       templateUrl: '/views/pages/edit.html',
-      controller: "UserController as uc"
+      controller: "EditController as ec"
     })
     .otherwise({
       redirectTo: 'home'

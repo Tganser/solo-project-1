@@ -43,7 +43,7 @@ app.use(passport.session());
 // Routes
 app.use('/register', register);
 app.use('/user', user);
-app.use('/', sendMessage);
+app.use('', sendMessage);
 app.use('/journal', journal);
 app.use('/feeling', feeling);
 app.use('/*', index);

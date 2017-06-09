@@ -39,6 +39,7 @@ myApp.controller('LoginController', ['$http', '$location', function($http, $loca
         console.log('sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {
           console.log('success');
+          swal("You have successfully registered!", "You will now be redirected to the login page. Please login.", "success")
           $location.path('/home');
         },
         function(response) {
